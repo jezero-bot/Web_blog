@@ -1,0 +1,6 @@
+
+
+
+
+class User(object):
+    pass
