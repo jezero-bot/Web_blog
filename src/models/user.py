@@ -26,7 +26,7 @@ class User(object):
             return user.password == password
         return False
 
-    @sclassmethod
+    @classmethod
     def register(cls, email, password):
         user = user.get_by_email(email)
         if user is None:
@@ -36,6 +36,7 @@ class User(object):
             return True
         else:
             return False
+
     @staticmethod
     def login(self):
         session("email") = user_email
@@ -45,7 +46,21 @@ class User(object):
         session("email") = None
 
     def get_blogs(self):
-        pass
+        return Blog.find_by_author_id(self._id)
+
+    def new_blog(selfself, title, description):
+        blog = Blog(
+            author = self.email,
+            author_id = self._id,
+            title=title,
+            description = description)
+        blog.saveToMongo()
+    @staticmethod
+    def new_post(self,blog_id,title,content,date=datetime.datetime.utcnow()):
+        blog= Blog.getFromMongo(blog_id)
+        blog.new_post(title=title,
+                      content=content,
+                      date=date)
 
     def json(self):
         return {

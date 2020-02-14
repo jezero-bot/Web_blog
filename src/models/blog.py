@@ -42,6 +42,7 @@ class Blog(object):
         blog_data = Database.find_one(collection='blogs',
                                       query={'_id': id})
         return cls(**blog_data)
+
     @classmethod
     def find_by_author_id(cls, author_id):
         blog_data = Database.find(collection='blogs',
